@@ -1,0 +1,10 @@
+---  
+- hosts: apache-servers
+  remote_user: centos
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Install the httpd rpm
+    yum: name=httpd
+  - name: start the httpd service
+    service: name=httpd state=started
